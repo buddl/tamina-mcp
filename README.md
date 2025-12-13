@@ -16,41 +16,62 @@ Before connecting to the Tamina MCP server, you need:
 
 ## Connecting to ChatGPT
 
-To connect the Tamina MCP server to ChatGPT:
+ChatGPT currently supports MCP servers through custom implementations and API integrations. To connect the Tamina MCP server to ChatGPT, you will need to use the OpenAI API with a custom client that supports the Model Context Protocol. This typically involves:
 
-1. Open ChatGPT and navigate to your settings.
-2. Look for the "Integrations" or "MCP Servers" section in the settings menu.
-3. Click on "Add MCP Server" or "Connect New Server".
-4. Enter the server URL: `https://tamina.app/api/mcp`
-5. When prompted, provide your Tamina authentication credentials.
-6. Save the configuration to establish the connection.
-7. Once connected, ChatGPT will be able to access Tamina's capabilities through the MCP protocol.
+1. Setting up a custom application that communicates with both ChatGPT's API and the Tamina MCP server.
+2. Configuring your application to use the MCP server URL: `https://tamina.app/api/mcp`
+3. Implementing authentication with your Tamina credentials in your application.
+4. Routing relevant context and requests through the MCP protocol.
+
+For direct integration, you may need to wait for official MCP support in ChatGPT or use third-party tools that bridge ChatGPT with MCP servers.
 
 ## Connecting to Claude
 
-To connect the Tamina MCP server to Claude (Anthropic):
+Claude Desktop supports MCP servers through configuration files. To connect the Tamina MCP server to Claude Desktop:
 
-1. Open Claude Desktop or Claude in your browser.
-2. Navigate to the settings menu (typically found in the top-right corner).
-3. Select "MCP Servers" or "External Integrations" from the settings options.
-4. Click "Add Server" or "New MCP Connection".
-5. In the server URL field, enter: `https://tamina.app/api/mcp`
-6. Provide your Tamina authentication credentials when requested.
-7. Confirm and save the configuration.
-8. Claude will now have access to Tamina's services through the MCP connection.
+1. Locate your Claude Desktop configuration file:
+   - On macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - On Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+   - On Linux: `~/.config/Claude/claude_desktop_config.json`
+
+2. Open the configuration file in a text editor.
+
+3. Add the Tamina MCP server to the `mcpServers` section:
+
+```json
+{
+  "mcpServers": {
+    "tamina": {
+      "url": "https://tamina.app/api/mcp",
+      "authentication": {
+        "type": "bearer",
+        "token": "YOUR_TAMINA_AUTH_TOKEN"
+      }
+    }
+  }
+}
+```
+
+4. Replace `YOUR_TAMINA_AUTH_TOKEN` with your actual Tamina authentication token.
+
+5. Save the configuration file and restart Claude Desktop.
+
+6. Claude will now have access to Tamina's services through the MCP connection.
 
 ## Connecting to GitHub Copilot
 
-To connect the Tamina MCP server to GitHub Copilot:
+GitHub Copilot integration with MCP servers is an emerging area. Currently, GitHub Copilot does not have native built-in support for connecting to external MCP servers through Visual Studio Code settings. However, you can leverage MCP functionality in your development workflow through these approaches:
 
-1. Open Visual Studio Code or your preferred IDE with GitHub Copilot installed.
-2. Access the GitHub Copilot settings through the command palette (Ctrl+Shift+P or Cmd+Shift+P).
-3. Search for "MCP" or "Model Context Protocol" settings.
-4. Select "Add MCP Server" or "Configure External Servers".
-5. Enter the server URL: `https://tamina.app/api/mcp`
-6. Input your Tamina authentication credentials when prompted.
-7. Apply the settings and restart your IDE if necessary.
-8. GitHub Copilot will now be able to utilize Tamina's functionality through the MCP connection.
+1. **Use MCP-compatible extensions**: Look for Visual Studio Code extensions that support the Model Context Protocol and can integrate with GitHub Copilot's functionality.
+
+2. **Custom integration**: Develop a custom VS Code extension that:
+   - Connects to the Tamina MCP server at `https://tamina.app/api/mcp`
+   - Authenticates using your Tamina credentials
+   - Provides context to GitHub Copilot through the VS Code extension API
+
+3. **API-based approach**: Create a local service that bridges GitHub Copilot's capabilities with the Tamina MCP server, allowing you to access Tamina's functionality alongside Copilot's code suggestions.
+
+As MCP adoption grows, more direct integration options may become available. Check the GitHub Copilot documentation and Tamina's official channels for updates on native MCP support.
 
 ## Authentication
 
