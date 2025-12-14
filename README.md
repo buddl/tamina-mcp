@@ -1,11 +1,14 @@
-# Tamina MCP Server
+# Tamina
 
 This repository provides the MCP (Model Context Protocol) server configuration for Tamina, a powerful platform available at [https://tamina.app](https://tamina.app). The MCP server enables AI assistants like ChatGPT, Claude, and GitHub Copilot to connect to Tamina's services and leverage its capabilities within your AI-powered workflows.
 
 ## About Tamina
 
-Tamina is a web app to make reservations and book appointments at local businesses. Reserve a table in a restaurant, reserve a room in a hotel, order a taxi, book an appointment at a hair salon, a nail studio, a doctor and many more.
-The Tamina MCP server acts as a bridge between AI platforms and Tamina's services. By connecting to this MCP server, AI assistants can search for local businesses and make reservations directly during your conversations without visiting the website. The MCP server is hosted at **https://tamina.app/api/mcp** , it supports dynamic client registration, so you don't require a client id, client secret nor an api key, instead it requires users to authenticate themselves before use and provide a verified email, phone number, name and address to make a binding reservation.
+Tamina is a web app to make reservations and book appointments at local businesses. Reserve a table in a restaurant, reserve a room in a hotel, order a taxi, book an appointment at a hair salon, a nail studio, a doctor and many more. This service is free of charge. That said a user needs to authenticate himself through a social provider like Google or Microsoft and additionally needs to provide a verified credit card using the Apple Pay or Google Pay button. Selecting Apple Pay or Google Pay does not result in any charge to the credit card, it is just used to validate users contact information like email, phone number, name and address. On reservation this verified contact information is sent to the local business. The local business representative receives an email with further instructions, and can confirm the reservation, decline, propose an alternative time or directly contact the user via email or phone.
+
+## MCP Server
+
+The Tamina MCP server acts as a bridge between AI platforms and Tamina's services. By connecting to this MCP server, AI assistants can search for local businesses and make reservations directly during your conversations without visiting the website. The MCP server is hosted at **https://tamina.app/api/mcp** , it supports dynamic client registration, so you don't require a client id, client secret nor an api key, instead it requires users to authenticate themselves before use and provide a verified email, phone number, name and address to make a binding reservation. 
 
 ## Prerequisites
 
