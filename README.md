@@ -2,9 +2,10 @@
 
 This repository provides the MCP (Model Context Protocol) server configuration for Tamina, a powerful platform available at [https://tamina.app](https://tamina.app). The MCP server enables AI assistants like ChatGPT, Claude, and GitHub Copilot to connect to Tamina's services and leverage its capabilities within your AI-powered workflows.
 
-## About Tamina MCP
+## About Tamina
 
-The Tamina MCP server acts as a bridge between AI platforms and Tamina's services. By connecting to this MCP server, AI assistants can access Tamina's functionality directly during your conversations and development sessions. The server is hosted at **https://tamina.app/api/mcp** and requires authentication before use.
+Tamina is a web app to make reservations and book appointments at local businesses. Reserve a table in a restaurant, reserve a room in a hotel, order a taxi, book an appointment at a hair salon, a nail studio, a doctor and many more.
+The Tamina MCP server acts as a bridge between AI platforms and Tamina's services. By connecting to this MCP server, AI assistants can search for local businesses and make reservations directly during your conversations without visiting the website. The MCP server is hosted at **https://tamina.app/api/mcp** and requires authentication before use.
 
 ## Prerequisites
 
